@@ -26,7 +26,7 @@ title: DIRAC
 
 :: title ::
 
-# What is DIRAC, actually?
+# What is DIRAC, actually? <img id="DiracX" src="/public/images/DIRAC-logo-extended.png" class="mx-auto w-1/5"> </img>
 
 :: content ::
 
@@ -35,8 +35,8 @@ title: DIRAC
 - It can be used for managing jobs (via pilots), data, productions, dataset transfers, etc
 - The recently refurbished [diracgrid.org](https://diracgrid.org/) explains everything and has many links for your info
 
-In general, DIRAC has a pretty active community of users and developers.
-- Apart from the regular zoom meetings, we meet for hackathons 3 times per year, plus once in a workshop. Next will be [14-16 Oct 2025 in Prague](https://indico.cern.ch/event/1588323/).
+In general, DIRAC has a very active community of users and developers.
+- Apart from the regular zoom meetings, we meet for hackathons 3 times per year, plus once in a workshop. Next will be [14-16 Oct 2026 in Prague](https://indico.cern.ch/event/1588323/).
 - For the latest presentations, check [our latest WS](https://indico.cern.ch/event/1433941/)
 
 ---
@@ -83,25 +83,30 @@ title: why
 - There are also exploratory works on using parts of DIRAC that are not the WMS 
 
 
+
 ---
-layout: top-title
+layout: side-title
+side: left
 color: gray-light
-align: c
+titlewidth: is-5
+align: cm-lm
 title: encounters
 ---
 
 :: title ::
+
+ <img id="Dirac" src="/public/images/DIRAC-logo-extended.png" class="mx-auto w-2/5"> </img>  <img id="Rucio" src="/public/images/rucio_horizontaled_black.svg" class="mx-auto w-3/5"> </img>
 
 # Previous encounters
 
 :: content ::
 
 - Rucio was presented in the [8th DIRAC's workshop](https://indico.cern.ch/event/676817/contributions/2975871/)
-- a DIRAC-Rucio setup was first mentioned in the [2nd Rucio WS](https://indico.cern.ch/event/773489/contributions/3316669/attachments/1803652/2942717/laycock_Rucio.pdf) and in the [9th DIRAC WS](https://indico.cern.ch/event/756635/contributions/3384793/attachments/1844896/3026476/BelleIIRucio.pdf)
+- a DIRAC-Rucio setup (from Belle2) was first mentioned in the [2nd Rucio WS](https://indico.cern.ch/event/773489/contributions/3316669/attachments/1803652/2942717/laycock_Rucio.pdf) and in the [9th DIRAC WS](https://indico.cern.ch/event/756635/contributions/3384793/attachments/1844896/3026476/BelleIIRucio.pdf)
 - in 2023 we organized a [DIRAC & Rucio WS at KEK](https://indico.cern.ch/event/1252369/)
-- at the beginning of this year a [Dirac & Rucio mini-workshop and hackathon](https://indico.cern.ch/event/1443765/)
+- at the beginning of this year we met for a [Dirac & Rucio mini-workshop and hackathon](https://indico.cern.ch/event/1443765/)
 
-We also have a dedicated [mattermost channel](https://mattermost.web.cern.ch/diracx/channels/rucio---dirac)
+There is also a dedicated [mattermost channel](https://mattermost.web.cern.ch/diracx/channels/rucio---dirac)
 
 
 ---
@@ -117,14 +122,13 @@ title: integration
 
 :: content ::
 
-The entry point is the DIRAC's `RucioFileCatalog`, which is an implementation of the `FileCatalog` "abstract" class (DIRAC has few different implementation of the same class)
+The entry point is the DIRAC's `RucioFileCatalog`, which is an implementation of the `FileCatalog` "abstract" class (DIRAC has few different implementation of the same class, and you can `register_file()` to more than 1 catalog at the same time)
 - in DIRAC since 2021
 - by now it supports *Multi VO* and *Rucio metadata*
-
-Once the data is in the Rucio catalog:
-- All the replication policies, 3rd party copy are handled by Rucio subscriptions and rules
 - The synchronization between DIRAC and Rucio is done via DIRAC
 agents
+
+Once the data is in the Rucio catalog, all the replication policies, 3rd party copy are handled by Rucio subscriptions and rules. 
 
 This also means that:
 - Admins still updates the DIRAC configuration
@@ -167,7 +171,7 @@ color: lime-light
 layout: side-title
 side: left
 color: gray-light
-titlewidth: is-5
+titlewidth: is-4
 align: rm-lm
 title: DiracX
 ---
@@ -178,6 +182,8 @@ title: DiracX
 
 :: content ::
 
+## A complete rewrite of DIRAC
+
 - A cloud native app
 - Multi-VO from the get-go
 - Standards-based
@@ -186,14 +192,41 @@ title: DiracX
 Still DIRAC, in terms of functionalities.
 </AdmonitionType>
 
+- While DIRAC is already very modular, DiracX is even more
+- With very well defined interfaces
 
--
+
+---
+layout: top-title
+color: gray-light
+align: c
+title: points
+---
+
+:: title ::
+
+# Notable points
+
+:: content ::
+
+<AdmonitionType type='note' >
+There are several communities using DIRAC right now. Their business continuity is our top priority.
+</AdmonitionType>
+
+<AdmonitionType type='important' >
+DIRAC and DiracX will live together for a while
+</AdmonitionType>
+
+<AdmonitionType type='info' >
+One functionality at a time, we'll eventually migrate all from DIRAC to DiracX.
+</AdmonitionType>
+
 
 ---
 layout: top-title-two-cols
 color: gray-light
 align: c-lt-lm
-title: summary
+title: timeline_summary
 ---
 
 :: title ::
@@ -221,11 +254,9 @@ title: summary
 
 (a somewhat personal take)
 
-- We kept doing 2-days hackathons every quarter
-  - if not during workshops, at CERN, and with good participation
-- DIRAC v8 kept receiving updates, but most of them were "for DiracX"
+Notable points:
 - In April 2025 LHCb moved the production setup to DIRAC v9 and DiracX 0.0.1 alpha versions
-- We kept postponing "real" releases for excellent technical reasons, until last week, when we tagged the first non-alpha versions of v9 and DiracX
+- 2 weeks ago we finally tagged the first non-alpha versions of v9 and DiracX
 
 ---
 layout: top-title
@@ -236,18 +267,19 @@ title: DiracX v0.0.1
 
 :: title ::
 
-# The First DiracX releases
+# The first DiracX releases
 
 :: content ::
 
-### They contain:
+### It contains:
 
-- All service/client underpinnings
-- Extension support
-- Jobs sandboxes can be stored in an object store (and you should do it)
-- The DIRAC `WorkloadManagement/JobStateUpdateHandler` service can be replaced by an "equivalent" DiracX service
-- The helm chart is considered "stable enough"
-- Documentation "sufficiently complete"
+- All service/client underpinnings.
+- Extension support.
+- Jobs sandboxes can be stored in an object store.
+- The DIRAC `WorkloadManagement/JobStateUpdateHandler` service can be replaced by an "equivalent" DiracX service.
+- The helm chart is considered "stable enough".
+- Documentation "sufficiently complete".
+- DiracX extensions working.
 
 We will keep working, within the patches of this first version, on adding new services and documentation.
 
@@ -287,42 +319,6 @@ columns: is-7
 - We will need a DIRAC v9.1 because there will be database changes (some PRs already in _draft_)
 - Standalone DiracX will take at least 2 years from now
 
----
-layout: top-title-two-cols
-color: gray-light
-align: c-lm-lm
-title: Users-WhatsNew
----
-
-:: title ::
-
-# What's new
-
-:: left ::
-
-DiracX brings updates for
-
-- Users
-- Administrators
-- Developers
-
-:: right ::
-
-As of now:
-
-- we are more concerned about solving **administrator**'s issues.
-- **Developers** "need to know" already if you have an DIRAC (or WebAppDIRAC) extension.
-- **Users** "do not yet need to know".
-
-Here, I only briefly talk about users.
-
----
-layout: section
-color: cyan
-title: toV9-users
----
-
-# From DIRAC v8 to v9+0.0.1 : **Users**
 
 ---
 layout: top-title
@@ -344,7 +340,7 @@ title: Users-WhatsNew
       <li>if a VO is not migrated to IaM, it can't be "enabled" (see later on)</li>
     </ul>
   </li>
-  <li>New <strong>Web app</strong> (which, for DiracX 0.0.1 will not be of much use)</li>
+  <li>New <strong>Web app</strong> (which, for DiracX 0.0.1 is not of much use)</li>
   <li>Enriched and modern <strong>CLI</strong> (but not many functionalities in there)</li>
   <li><strong>REST</strong> interface for programmatic usage (for advanced users -- but again, not much user-facing info to use)</li>
 </ul>
@@ -358,29 +354,26 @@ title: Users-WhatsNew
 </ul>
 
 ---
-layout: top-title
+layout: side-title
+side: left
 color: gray-light
-align: c
+titlewidth: is-4
+align: rm-lm
 title: WebAPI
 ---
 
 :: title ::
 
-# DiracX Web API
+# DiracX APIs
 
 :: content ::
 
 DIRAC Web APIs with <devicon-fastapi-wordmark class="text-7xl align-middle inline-block mx-0"></devicon-fastapi-wordmark>
 
-<ul class="text-sm">
-  <li>
-    Nicely documented by
-    <devicon-swagger-wordmark class="text-7xl align-middle inline-block mx-0"></devicon-swagger-wordmark>
-  </li>
-  <li>
-    Follows the <devicon-plain-openapi-wordmark class="text-7xl align-middle inline-block mx-1"></devicon-plain-openapi-wordmark> specification, with the (python) client generated by <a href="https://github.com/Azure/autorest/blob/main/docs/introduction.md">AutoREST</a>.
-  </li>
-</ul>
+Nicely documented by <devicon-swagger-wordmark class="text-7xl align-middle inline-block mx-0"></devicon-swagger-wordmark>
+
+Follows the <devicon-plain-openapi-wordmark class="text-7xl align-middle inline-block mx-1"></devicon-plain-openapi-wordmark> specification, with the (python) client generated by [AutoREST](https://github.com/Azure/autorest/blob/main/docs/introduction.md)
+- clients in another language are just one pipeline away.
 
 <!--
 - there is also redoc
@@ -388,23 +381,26 @@ DIRAC Web APIs with <devicon-fastapi-wordmark class="text-7xl align-middle inlin
 -->
 
 ---
-layout: top-title-two-cols
+layout: side-title
+side: right
 color: gray-light
-align: c-lm-lm
+titlewidth: is-4
+align: lm-lm
 title: DiracX-Web
-is-column: 4
 ---
 
 :: title ::
 
 # DiracX web
 
-:: left ::
+![diracx-web](/public/images/diracx-web-structure.png)
 
-We are also rewriting [the Web App](https://github.com/DIRACGrid/diracx-web) from scratch.
+![diracx-login](/public/images/diracx-auth.png)
 
-:: right :: 
 
+:: content ::
+
+### We are also rewriting [the Web App](https://github.com/DIRACGrid/diracx-web) from scratch.
 
 Software stack:
 
@@ -412,44 +408,73 @@ Software stack:
 - Material UI <devicon-materialui class="text-3xl align-middle inline-block mx-2" />
 - TypeScript <devicon-typescript class="text-3xl align-middle inline-block mx-2" />
 
+(very similary to Rucio Web UI stack)
+
+- There is no tight coupling between API and frontend: the web app acts as any other diracx client using the same set of endpoints.
+- As per DiracX, DiracX-Web is extendable.
+
+
 ---
 layout: top-title
 color: gray-light
-align: c
-title: DiracX and Rucio
+align: c 
+title: DiracXWMS
 ---
 
 :: title ::
 
-# DiracX and Rucio
+# WMS evolution in DiracX
 
 :: content ::
 
-
+There are several features that will be added in the next year in DiracX (few already in DIRAC), evolving its WMS functionalities. Few examples:
+- Perfecting the **Pilot push model** for closed HPCs (in parallel to the default pull model)
+- A new an improved security model for pilots, using tokens
+- Enforcing of CGroup2 limits for full node allocations
 
 
 ---
-layout: top-title-two-cols
+layout: top-title
 color: gray-light
-align: cm-lm-lm
-title: tokens
+align: cm 
+title: DiracXWMS
 ---
 
 :: title ::
 
-# Few tokens considerations
+# WMS evolution in DiracX: CWL
 
-:: left ::
+:: content ::
 
-(news below provided by Cedric Serfon)
-
-![](/public/images/Cedric_Rucio_tokens_fromDUW.png)
-
-:: right ::
-
-- DiracX is 
+<div class="flex justify-center gap-4">
+  <img src="/public/images/CWL1.png" class="w-1/2 object-contain" />
+  <img src="/public/images/CWL2.png" class="w-1/4 object-contain" />
+  <img src="/public/images/CWL3.png" class="w-1/4 object-contain" />
+</div>
 
 
+
+---
+layout: side-title
+side: left
+color: gray-light
+titlewidth: is-5
+align: cm-lm
+title: next_encounters
+---
+
+:: title ::
+
+ <img id="Dirac" src="/public/images/diracx-logo-full-transparent-background.png" class="mx-auto w-2/5"> </img>  <img id="Rucio" src="/public/images/rucio_horizontaled_black.svg" class="mx-auto w-3/5"> </img>
+
+# What's next
+
+:: content ::
+
+- We started coding few tests for a DIRAC(X)+Rucio test setup but never finished. While at low priority, these will complete eventually.
+- The current AuthNZ model is based on X509. That will move to tokens.
+- In general, users of both DiracX and Rucio should drive the agenda on what's next.
+- Probably, eventually we will organize a new DiracX+Rucio mini-WS and hackathon, or something similar.
 
 
 ---
@@ -470,19 +495,16 @@ title: summary
 :: right ::
 
 <ul class="text-base">
-  <li>DiracX is "the neXt Dirac incarnation", ensuring the future of the widely used Dirac
-    <ul class="text-sm">
-      <li>We are rewriting the code, but it is still Dirac that you love!</li>
-    </ul>
+  <li>DIRAC and Rucio have been used as complementary tools for exploiting distributed computing resources for a few years already.
   </li>
-  <li>DiracX will ease the interoperability with Rucio and/or dask and/or any other tool out there
     <ul class="text-sm">
-      <li>DiracX will still have the Data Management part, but its Workload Management functionalities will come first</li>
+      <li>The collaboration is meant to continue!</li>
+      <li>DiracX will ease the interoperability with Rucio and/or any other tool out there</li>
     </ul>
-  </li>
-  <li>The first DiracX release is here
+  <li>DiracX is "the neXt Dirac incarnation", ensuring the future of the widely used DIRAC. The first DiracX release is here.
     <ul class="text-sm">
       <li>It will live together with DIRAC v9 for a while, until it will replace it completely</li>
+      <li>DiracX will still have the Data Management part, but its Workload Management functionalities will come first</li>
     </ul>
   </li>
 </ul>
@@ -531,6 +553,8 @@ title: credits/people
 &nbsp;
 &nbsp;
 &nbsp;
+&nbsp;
+&nbsp;
 
 <div class="grid-item col-span-3 text-center mt-180px mb-auto font-size-1.5rem">
     <strong>Questions?</strong>
@@ -558,7 +582,7 @@ titlewidth: is-3
 ## Workload Management System
 - Pull model based on Pilot jobs
 - Also "Push" solution for HPCs that do not support pilots (because of limited internet access).
-- Will integrate [CWL (Common Workflow Language)](https://www.commonwl.org) as a way of defining jobs (replacing JDL) --> see poster #217
+- Will integrate [CWL (Common Workflow Language)](https://www.commonwl.org) as a way of defining jobs (replacing JDL)
 
 :: content ::
 
